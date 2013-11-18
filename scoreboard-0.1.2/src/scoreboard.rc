@@ -1,0 +1,59 @@
+/////////////////////////////////////////////////////////////////////////////
+// Name:        scoreboard.rc
+// Purpose:     a standard Win32 .rc file for the wxWindows samples
+// Author:      Vadim Zeitlin
+// Modified by: Daniel Jun
+// Created:     04.08.03
+// Copyright:   (c) 2003 Vadim Zeitlin <vadim@wxwindows.org>
+// Licence:     wxWindows licence
+/////////////////////////////////////////////////////////////////////////////
+
+#include "resource.h"
+
+// this icon is used with wxFrame::SetIcon()
+scoreboard ICON "scoreboard.ico"
+
+// set this to 1 if you don't want to use manifest resource (manifest resource
+// is needed to enable visual styles on Windows XP - see docs/msw/winxp.txt
+// for more information)
+#define wxUSE_NO_MANIFEST 0
+
+// Version
+// XXX I have no idea how to use it. - Daniel Jun
+ID_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,1,2,0
+ PRODUCTVERSION 0,1,2,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x0L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041204b0"
+        BEGIN
+            VALUE "CompanyName", "Daniel Jun"
+            VALUE "FileDescription", "scoreboard"
+            VALUE "FileVersion", "0, 1, 2, 0"
+            VALUE "InternalName", "scoreboard"
+            VALUE "LegalCopyright", "Copyright (C) 2012 Daniel Jun"
+            VALUE "OriginalFilename", "scoreboard.exe"
+            VALUE "ProductName", "scoreboard"
+            VALUE "ProductVersion", "0, 1, 2, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 1200
+    END
+END
+
+// this is not always needed but doesn't hurt (except making the executable
+// very slightly larger): this file contains the standard icons, cursors, ...
+#include "wx/msw/wx.rc"
+
