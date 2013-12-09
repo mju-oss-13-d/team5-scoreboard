@@ -1,5 +1,6 @@
 #include <iostream>
 #include "main.hpp"
+#include "Log.h"
 #include "config.hpp"
 #include "boardframe.hpp"
 
@@ -10,7 +11,6 @@ MyApp::OnInit()
 {
     if (!wxApp::OnInit())
         return false;
-
     // 영구 저장소에서 프로그램의 설정을 읽어온다.
     Config::Instance().Read();
 

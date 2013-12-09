@@ -4,10 +4,12 @@
 #include "ctrlpanel.hpp"
 #include "confdlg.hpp"
 #include <wx/aboutdlg.h>
-
+#include "Log.h"
 #if defined(__WXGTK__) || defined(__WXMOTIF__)
 #include "scoreboard.xpm"
 #endif
+
+CLog * log = new CLog();
 
 //      1    :         2         :    1
 // +---------+-------------------+---------+
@@ -225,6 +227,7 @@ wxBoardFrame::OnNewGame(wxCommandEvent& WXUNUSED(evt))
 
     m_rightPan->ResetScore();
     m_rightPan->ResetFoul();
+	log->StrAdd("새로운 게임 시작");
 }
 
 void
@@ -242,12 +245,14 @@ void
 wxBoardFrame::OnStartTime(wxCommandEvent& WXUNUSED(evt))
 {
     m_gamePan->StartTime();
+	log->StrAdd("스타트 시간");
 }
 
 void
 wxBoardFrame::OnStopTime(wxCommandEvent& WXUNUSED(evt))
 {
     m_gamePan->StopTime();
+	log->StrAdd("스톱 시간");
 }
 
 void
@@ -265,60 +270,71 @@ void
 wxBoardFrame::OnStartShotClock(wxCommandEvent& WXUNUSED(evt))
 {
     m_gamePan->StartShotClock();
+	log->StrAdd("슛 시간 스타트");
 }
 
 void
 wxBoardFrame::OnResetShotClock(wxCommandEvent& WXUNUSED(evt))
 {
     m_gamePan->ResetShotClock();
+	log->StrAdd("슛 시간 리셋");
+}
 }
 
 void
 wxBoardFrame::OnIncLeftScore(wxCommandEvent& WXUNUSED(evt))
 {
     m_leftPan->IncScore();
+	log->StrAdd("홈팀 스코어 증가");
 }
 
 void
 wxBoardFrame::OnDecLeftScore(wxCommandEvent& WXUNUSED(evt))
 {
     m_leftPan->DecScore();
+	log->StrAdd("홈팀 스코어 감소");
 }
 
 void
 wxBoardFrame::OnIncRightScore(wxCommandEvent& WXUNUSED(evt))
 {
     m_rightPan->IncScore();
+	log->StrAdd("어웨이팀 스코어 증가");
 }
 
 void
 wxBoardFrame::OnDecRightScore(wxCommandEvent& WXUNUSED(evt))
 {
     m_rightPan->DecScore();
+	log->StrAdd("어웨이팀 스코어 감소");
 }
 
 void
 wxBoardFrame::OnIncLeftFoul(wxCommandEvent& WXUNUSED(evt))
 {
     m_leftPan->IncFoul();
+	log->StrAdd("홈팀 파울 증가");
 }
 
 void
 wxBoardFrame::OnDecLeftFoul(wxCommandEvent& WXUNUSED(evt))
 {
     m_leftPan->DecFoul();
+	log->StrAdd("홈팀 파울 감소");
 }
 
 void
 wxBoardFrame::OnIncRightFoul(wxCommandEvent& WXUNUSED(evt))
 {
     m_rightPan->IncFoul();
+	log->StrAdd("어웨이팀 파울 증가");
 }
 
 void
 wxBoardFrame::OnDecRightFoul(wxCommandEvent& WXUNUSED(evt))
 {
     m_rightPan->DecFoul();
+	log->StrAdd("어웨이팀 파울 감소");
 }
 
 void
@@ -329,16 +345,19 @@ wxBoardFrame::OnNewPeriod(wxCommandEvent& WXUNUSED(evt))
 
     m_leftPan->ResetFoul();
     m_rightPan->ResetFoul();
+	log->StrAdd("새 피리어드");
 }
 
 void
 wxBoardFrame::OnIncPeriod(wxCommandEvent& WXUNUSED(evt))
 {
     m_gamePan->IncPeriod();
+	log->StrAdd("피리어드 증가");
 }
 
 void
 wxBoardFrame::OnDecPeriod(wxCommandEvent& WXUNUSED(evt))
 {
     m_gamePan->DecPeriod();
+	log->StrAdd("피리어드 감소");
 }

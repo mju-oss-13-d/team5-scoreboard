@@ -1,30 +1,7 @@
 #include "teampanel.hpp"
 #include "lcdwindow.hpp"
 #include "statictitle.hpp"
-
-// +--------------------+
-// |                    |
-// |       Home         |
-// |                    |
-// | +----------------+ |
-// | | +--+ +--+ +--+ | |
-// | | |  | |  | |  | | |
-// | | +--+ +--+ +--+ | |
-// | | |  | |  | |  | | |
-// | | +--+ +--+ +--+ | |
-// | +----------------+ |
-// |                    |
-// |  fouls             |
-// | +-----------+      |
-// | | +--+ +--+ |      |
-// | | |  | |  | |      |
-// | | +--+ +--+ |      |
-// | | |  | |  | |      |
-// | | +--+ +--+ |      |
-// | +-----------+      |
-// +--------------------+
-// 
-
+extern CLog * log;
 wxTeamPanel::wxTeamPanel(wxWindow* parent, const wxString& name)
     : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize,
               wxBORDER_RAISED, name)
@@ -71,6 +48,7 @@ wxTeamPanel::ResetScore()
 {
     m_score = 0;
     UpdateScore();
+
 }
 
 void
@@ -79,6 +57,7 @@ wxTeamPanel::UpdateScore()
     wxString str;
     str << m_score;
     m_scoreCtrl->SetValue(str);
+
 }
 
 void
@@ -86,6 +65,7 @@ wxTeamPanel::IncFoul()
 {
     m_foul = (++m_foul > 99) ? 99 : m_foul;
     UpdateFoul();
+
 }
 
 void
@@ -93,6 +73,7 @@ wxTeamPanel::DecFoul()
 {
     m_foul = (--m_foul < 0) ? 0 : m_foul;
     UpdateFoul();
+
 }
 
 void
@@ -100,6 +81,7 @@ wxTeamPanel::ResetFoul()
 {
     m_foul = 0;
     UpdateFoul();
+
 }
 
 void
@@ -108,6 +90,7 @@ wxTeamPanel::UpdateFoul()
     wxString str;
     str << m_foul;
     m_foulCtrl->SetValue(str);
+
 }
 
 wxLeftTeamPanel::wxLeftTeamPanel(wxWindow* parent, const wxString& name)

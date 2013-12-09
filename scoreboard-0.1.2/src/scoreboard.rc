@@ -55,5 +55,5 @@ END
 
 // this is not always needed but doesn't hurt (except making the executable
 // very slightly larger): this file contains the standard icons, cursors, ...
-#include "wx/msw/wx.rc"
+#include <wx.rc>
 
